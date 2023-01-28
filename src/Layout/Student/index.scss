@@ -1,0 +1,144 @@
+.STUDENT {
+    background-color: #EEEEEE;
+    min-height: 100vh;
+    height: auto;
+    color: white;
+    .sidebar {
+      position: relative;
+      right: 0px;
+      top: 0px;
+
+      height: 100%;
+        .sidebar-menu {
+          background-color: white ;
+          min-height: calc(100vh - 2rem);
+          overflow-x: hidden;
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+        }
+      }
+      .profile {
+        width: calc(100% - 2rem);
+        .content {
+          background: #11998e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+      }
+      .nav-items li {
+        font-weight: 500;
+        overflow: hidden;
+        height: auto;
+        > a {
+            overflow: hidden;
+            height: auto;
+          position: relative;
+          border-radius: 0 1rem 1rem 0;
+          i {
+            opacity: 1;
+          }
+
+
+          &.active i {
+            opacity: 1;
+          }
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            color: #FB2576;
+            border-radius: 50%;
+            pointer-events: none;
+            display: none;
+          }
+          
+        }
+        > .accordion {
+          --bs-bg-opacity: 0;
+          border-radius:  1rem ;
+          background-color: transparent;
+          transition: background-color 250ms;
+          font-weight: 500;
+          
+          .accordion-toggler {
+
+            overflow: hidden;
+            height: auto;
+            color: #393E46;
+            border-radius: inherit;
+            background-color: transparent;
+            
+            
+          }
+          .accordion-collapse {
+            border-radius: inherit;
+            height: 0;
+            overflow: hidden;
+            transition: 250ms linear;
+            .accordion-body {
+              padding: 0.5rem 1rem;
+              div a i {
+                opacity: 0;
+                transition: 250ms;
+              }
+              div a.active i {
+                opacity: 1;
+              }
+            }
+          }
+          &.active {
+            --bs-bg-opacity: 0.25;
+            .accordion-toggler {
+              background-color: rgb(228, 228, 228);
+              color: var(--bs-violet);
+              
+            }
+          }
+        }
+      }
+      .breadcrumb {
+        .active {
+          color: var(--bs-info);
+        }
+      }
+    
+      @media (max-width: 991px) {
+        .sidebar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          display: flex;
+          transition: background-color 250ms;
+          pointer-events: none;
+          .hide-btn {
+            flex: 1;
+            opacity: 0;
+            min-width: 0;
+          }
+          .sidebar-menu {
+            width: 300px;
+            height: 100%;
+            // overflow: auto;
+            overflow-x: hidden;
+            background-color: white;
+            transition: transform 250ms;
+            transform: translateX(100%);
+          }
+          &.active {
+            background-color: rgba(0, 0, 0, 0.5);
+            pointer-events: all;
+            .sidebar-menu {
+              transform: translateX(0%);
+            }
+          }
+        }
+      }
+      
+}
